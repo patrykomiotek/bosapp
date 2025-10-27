@@ -25,6 +25,7 @@ export const RegistrationFormState = () => {
 
   const handleSubmit: FormEventHandler = (event) => {
     event.preventDefault();
+    console.log({ state });
   };
 
   // const handleEmailChange: ChangeEventHandler<HTMLInputElement> = (event) => {

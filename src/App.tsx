@@ -1,18 +1,20 @@
 // import { Fragment } from 'react';
 import "./App.css";
-import { Generator } from "./components/Generator";
-import { RegistrationFormState } from "./components/RegistrationFormState";
+import { RegistrationFormRefs } from "./components/RegistrationFormRefs";
+// import { Generator } from "./components/Generator";
+// import { RegistrationFormState } from "./components/RegistrationFormState";
 // import Kaczka from "./ui/Text/Text";
 // import { Text } from "./ui/Text/Text";
 // import { Text } from "./ui/Text";
-import { Button, Text } from "./ui";
+// import { Button, Text } from "./ui";
 // import { Text } from './ui' -> '@/ui' -> '@bos/ui`
 
 function App() {
   return (
     <>
       <div>
-        <RegistrationFormState />
+        {/* <RegistrationFormState /> */}
+        <RegistrationFormRefs />
         {/* <Generator /> */}
         {/* <Text>test</Text>
         <Button>Click me</Button>
