@@ -9,6 +9,7 @@ type RegistrationFormDto = {
 };
 
 export const RegistrationFormRefs = () => {
+  const idsRef = useRef([]); // idRefs.push(4)
   const emailFieldRef = useRef<HTMLInputElement>(null);
   const passwordFieldRef = useRef<HTMLInputElement>(null);
   const languageFieldRef = useRef<HTMLInputElement>(null);
