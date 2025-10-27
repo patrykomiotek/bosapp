@@ -27,6 +27,8 @@ type Props = CustomReadonly<{
   bgColor?: Color;
 }>;
 
+// type PropsWithoutColor = Omit<Props, "color">;
+
 function Button({ children, color = "clouds", bgColor = "emerald" }: Props) {
   return (
     <button

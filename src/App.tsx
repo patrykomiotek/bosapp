@@ -1,5 +1,6 @@
 // import { Fragment } from 'react';
 import "./App.css";
+import { Generator } from "./components/Generator";
 // import Kaczka from "./ui/Text/Text";
 // import { Text } from "./ui/Text/Text";
 // import { Text } from "./ui/Text";
@@ -10,11 +11,12 @@ function App() {
   return (
     <>
       <div>
-        <Text>test</Text>
+        <Generator />
+        {/* <Text>test</Text>
         <Button>Click me</Button>
         <Button color="clouds" bgColor="carrot">
           Click me
-        </Button>
+        </Button> */}
       </div>
     </>
   );
