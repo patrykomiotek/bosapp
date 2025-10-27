@@ -1,4 +1,5 @@
-import { useRef, type FormEventHandler } from "react";
+import { useRef, createRef, type FormEventHandler } from "react";
+// react-hook-form
 import { Button } from "../ui";
 
 type RegistrationFormDto = {
@@ -12,6 +13,7 @@ export const RegistrationFormRefs = () => {
   const idsRef = useRef([]); // idRefs.push(4)
   const emailFieldRef = useRef<HTMLInputElement>(null);
   const passwordFieldRef = useRef<HTMLInputElement>(null);
+  const passwordErrorRef = useRef<HTMLParagraphElement>(null);
   const languageFieldRef = useRef<HTMLInputElement>(null);
   const countryFieldRef = useRef<HTMLInputElement>(null);
 
@@ -28,6 +30,9 @@ export const RegistrationFormRefs = () => {
       if (languageFieldRef.current) {
         languageFieldRef.current.style.border = "1px red solid;";
         languageFieldRef.current.value = "***";
+        if (passwordErrorRef.current) {
+          passwordErrorRef.current.innerText = "Language is invalid";
+        }
       }
     }
 
@@ -58,6 +63,7 @@ export const RegistrationFormRefs = () => {
         <div>
           <label htmlFor="language">Language</label>
           <input ref={languageFieldRef} id="language" name="language" />
+          <p ref={passwordErrorRef} style={{ color: "red" }}></p>
         </div>
         <div>
           <label htmlFor="country">Country</label>
