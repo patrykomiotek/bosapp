@@ -7,7 +7,7 @@ function App() {
   return (
     <>
       <div>
-        <Text parsed_text="Test1"></Text>
+        <Text>Test1</Text>
       </div>
     </>
   );

@@ -1,12 +1,12 @@
 type Props = {
-  parsed_text: string; // string / number / boolean
+  children: string; // string / number / boolean
 };
 
 function Text(props: Props) {
   // [], undefined, null, 0, 1
-  const { parsed_text } = props; // { parsed_text }
+  const { children } = props; // { parsed_text }
   // const parsed_text = props.parsed_text;
-  return <p>{parsed_text}</p>;
+  return <p>{children}</p>;
 }
 
 // export default Text;
