@@ -13,6 +13,7 @@ function Generator() {
   return (
     <>
       <Text>{uuid}</Text>
+      <Text>Hello World!</Text>
       {/* <button onClick={handleClick}>Regenerate</button> */}
       <Button onClick={handleClick}>Regenerate</Button>
       {/* <Button onClick></Button> -> <button onClick={onClick}> */}
