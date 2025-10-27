@@ -3,18 +3,15 @@ import { useState } from "react";
 import { Text } from "../ui/Text";
 
 function Generator() {
-  const state = useState(); // [0 - value, 1 - fn setter]
-  let uuid = uuidv4();
+  const [uuid, setUuid] = useState(uuidv4()); // [0 - value, 1 - fn setter]
 
   const handleClick = () => {
-    uuid = uuidv4();
-    state[1](uuid);
-    console.log({ uuid });
+    setUuid(uuidv4());
   };
 
   return (
     <>
-      <Text>{state[0]}</Text>
+      <Text>{uuid}</Text>
       <button onClick={handleClick}>Regenerate</button>
       {/* <Button onClick></Button> -> <button onClick={onClick}> */}
     </>
