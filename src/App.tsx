@@ -1,6 +1,7 @@
 // import { Fragment } from 'react';
 import "./App.css";
 import { Generator } from "./components/Generator";
+import { RegistrationFormState } from "./components/RegistrationFormState";
 // import Kaczka from "./ui/Text/Text";
 // import { Text } from "./ui/Text/Text";
 // import { Text } from "./ui/Text";
@@ -11,7 +12,8 @@ function App() {
   return (
     <>
       <div>
-        <Generator />
+        <RegistrationFormState />
+        {/* <Generator /> */}
         {/* <Text>test</Text>
         <Button>Click me</Button>
         <Button color="clouds" bgColor="carrot">
