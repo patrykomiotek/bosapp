@@ -3,7 +3,7 @@ import "./App.css";
 // import Kaczka from "./ui/Text/Text";
 // import { Text } from "./ui/Text/Text";
 // import { Text } from "./ui/Text";
-import { Text } from "./ui";
+import { Button, Text } from "./ui";
 // import { Text } from './ui' -> '@/ui' -> '@bos/ui`
 
 function App() {
@@ -11,6 +11,10 @@ function App() {
     <>
       <div>
         <Text>test</Text>
+        <Button>Click me</Button>
+        <Button color="clouds" bgColor="carrot">
+          Click me
+        </Button>
       </div>
     </>
   );
