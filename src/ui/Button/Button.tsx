@@ -1,3 +1,5 @@
+import { memo, type ComponentProps } from "react";
+
 // enum Colors {
 //   emerald = "#2ecc71",
 //   midnightBlue = "#2c3e50",
@@ -16,30 +18,36 @@ const palette = {
 
 type Color = keyof typeof palette;
 
-type CustomReadonly<T> = {
-  // readonly [key in keyof T]-?: T[key];
-  readonly [key in keyof T]: T[key];
-};
+// type CustomReadonly<T> = {
+//   // readonly [key in keyof T]-?: T[key];
+//   readonly [key in keyof T]: T[key];
+// };
 
-type Props = CustomReadonly<{
-  children: string;
+type Props = {
+  // children: string;
   color?: Color;
   bgColor?: Color;
-}>;
+  // onClick?: () => void;
+} & ComponentProps<"button">;
 
 // type PropsWithoutColor = Omit<Props, "color">;
 
-function Button({ children, color = "clouds", bgColor = "emerald" }: Props) {
-  return (
-    <button
-      style={{
-        color: palette[color],
-        backgroundColor: palette[bgColor],
-      }}
-    >
-      {children}
-    </button>
-  );
-}
+const Button = memo(
+  ({ children, color = "clouds", bgColor = "emerald", ...rest }: Props) => {
+    return (
+      <button
+        style={{
+          color: palette[color],
+          backgroundColor: palette[bgColor],
+        }}
+        {...rest}
+      >
+        {children}
+      </button>
+    );
+  }
+);
+
+Button.displayName = "memo(Button)";
 
 export { Button };
