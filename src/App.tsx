@@ -14,7 +14,8 @@ function App() {
     <>
       <div>
         {/* <RegistrationFormState /> */}
-        <RegistrationFormRefs />
+        {/* <Text>Hello {123}</Text> */}
+        {/* <RegistrationFormRefs /> */}
         {/* <Generator /> */}
         {/* <Text>test</Text>
         <Button>Click me</Button>

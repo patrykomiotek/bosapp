@@ -1,7 +1,7 @@
 import { memo } from "react";
 
 type Props = {
-  children: string; // string / number / boolean
+  children: string | number | (string | number)[]; // string / number / boolean
   // children: React.ReactNode;
 };
 
