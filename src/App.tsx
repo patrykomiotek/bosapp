@@ -5,6 +5,7 @@ import { RegistrationPage } from "@/features/registration/components/Registratio
 import { useState } from "react";
 import { Button } from "@/ui";
 import { Counter } from "@/components/Counter";
+import { ProductsList } from "./features/products/components/ProductsList";
 // import { RegistrationFormRefs } from "./components/RegistrationFormRefs";
 // import { RegistrationFormRHF } from "./components/RegistrationFormRHF";
 // import { ValueKeeper } from "./components/ValueKeeper";
@@ -23,7 +24,8 @@ function App() {
   return (
     <>
       <div>
-        <Counter />
+        <ProductsList />
+        {/* <Counter /> */}
         {/* {showViewport && <Viewport />} */}
         {/* <Button onClick={() => setShowViewport(!showViewport)}>Toggle</Button> */}
         {/* <RegistrationPage /> */}
