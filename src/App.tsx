@@ -1,6 +1,7 @@
 // import { Fragment } from 'react';
 import "./App.css";
 import { RegistrationFormRefs } from "./components/RegistrationFormRefs";
+import { RegistrationFormRHF } from "./components/RegistrationFormRHF";
 // import { Generator } from "./components/Generator";
 // import { RegistrationFormState } from "./components/RegistrationFormState";
 // import Kaczka from "./ui/Text/Text";
@@ -16,6 +17,7 @@ function App() {
         {/* <RegistrationFormState /> */}
         {/* <Text>Hello {123}</Text> */}
         {/* <RegistrationFormRefs /> */}
+        <RegistrationFormRHF />
         {/* <Generator /> */}
         {/* <Text>test</Text>
         <Button>Click me</Button>

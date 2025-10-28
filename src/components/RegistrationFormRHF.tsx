@@ -1,5 +1,4 @@
-import { type FormEventHandler } from "react";
-import { useForm } from "react-hook-form";
+import { useForm, type SubmitHandler } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod"; // or 'zod/v4'
 
@@ -14,26 +13,32 @@ type RegistrationFormDto = {
 };
 
 export const RegistrationFormRHF = () => {
-  const handleSubmit: FormEventHandler = (event) => {};
+  const { register, handleSubmit } = useForm<RegistrationFormDto>();
+
+  const handleRegistrationSubmit: SubmitHandler<RegistrationFormDto> = (
+    data
+  ) => {
+    console.log({ data });
+  };
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit(handleRegistrationSubmit)}>
         <div>
           <label htmlFor="email">E-mail</label>
-          <input id="email" type="email" />
+          <input {...register("email")} id="email" type="email" />
         </div>
         <div>
           <label htmlFor="password">Password</label>
-          <input id="password" type="password" />
+          <input {...register("password")} id="password" type="password" />
         </div>
         <div>
           <label htmlFor="language">Language</label>
-          <input id="language" />
+          <input {...register("language")} id="language" />
         </div>
         <div>
           <label htmlFor="country">Country</label>
-          <input id="country" />
+          <input {...register("country")} id="country" />
         </div>
         <div>
           <Button type="submit">Submit</Button>
