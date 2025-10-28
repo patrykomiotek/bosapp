@@ -1,6 +1,9 @@
 // import { Fragment } from 'react';
+import { Viewport } from "@/components/Viewport";
 import "./App.css";
 import { RegistrationPage } from "@/features/registration/components/RegistrationPage";
+import { useState } from "react";
+import { Button } from "@/ui";
 // import { RegistrationFormRefs } from "./components/RegistrationFormRefs";
 // import { RegistrationFormRHF } from "./components/RegistrationFormRHF";
 // import { ValueKeeper } from "./components/ValueKeeper";
@@ -14,10 +17,14 @@ import { RegistrationPage } from "@/features/registration/components/Registratio
 // import { Text } from './ui' -> '@/ui' -> '@bos/ui`
 
 function App() {
+  const [showViewport, setShowViewport] = useState(true);
+
   return (
     <>
       <div>
-        <RegistrationPage />
+        {showViewport && <Viewport />}
+        <Button onClick={() => setShowViewport(!showViewport)}>Toggle</Button>
+        {/* <RegistrationPage /> */}
         {/* <MagicMouseWrapper /> */}
         {/* <RegistrationFormState /> */}
         {/* <Text>Hello {123}</Text> */}
