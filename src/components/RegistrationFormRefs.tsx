@@ -1,6 +1,6 @@
 import { useRef, createRef, type FormEventHandler } from "react";
 // react-hook-form
-import { Button } from "../ui";
+import { Button, Input } from "../ui";
 
 type RegistrationFormDto = {
   email: string;
@@ -47,11 +47,13 @@ export const RegistrationFormRefs = () => {
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <div>
+        <Input ref={emailFieldRef} label="E-mail" type="email" />
+        {/* <div>
           <label htmlFor="email">E-mail</label>
           <input ref={emailFieldRef} id="email" name="email" type="email" />
-        </div>
-        <div>
+        </div> */}
+        <Input ref={passwordFieldRef} label="Password" type="password" />
+        {/* <div>
           <label htmlFor="password">Password</label>
           <input
             ref={passwordFieldRef}
@@ -59,16 +61,18 @@ export const RegistrationFormRefs = () => {
             name="password"
             type="password"
           />
-        </div>
-        <div>
+        </div> */}
+        <Input ref={languageFieldRef} label="Language" />
+        {/* <div>
           <label htmlFor="language">Language</label>
           <input ref={languageFieldRef} id="language" name="language" />
           <p ref={passwordErrorRef} style={{ color: "red" }}></p>
-        </div>
-        <div>
+        </div> */}
+        <Input ref={countryFieldRef} label="Country" />
+        {/* <div>
           <label htmlFor="country">Country</label>
           <input ref={countryFieldRef} id="country" name="country" />
-        </div>
+        </div> */}
         <div>
           <Button type="submit">Submit</Button>
         </div>

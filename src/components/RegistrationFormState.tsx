@@ -3,7 +3,7 @@ import {
   type ChangeEventHandler,
   type FormEventHandler,
 } from "react";
-import { Button } from "../ui";
+import { Button, Input } from "../ui";
 
 type RegistrationFormDto = {
   email: string;
@@ -66,11 +66,23 @@ export const RegistrationFormState = () => {
         </p>
       </div>
       <form onSubmit={handleSubmit}>
-        <div>
+        <Input
+          label="E-mail"
+          name="email"
+          type="email"
+          onChange={handleChange}
+        />
+        {/* <div>
           <label htmlFor="email">E-mail</label>
           <input id="email" name="email" type="email" onChange={handleChange} />
-        </div>
-        <div>
+        </div> */}
+        <Input
+          label="Password"
+          name="password"
+          type="password"
+          onChange={handleChange}
+        />
+        {/* <div>
           <label htmlFor="password">Password</label>
           <input
             id="password"
@@ -78,15 +90,17 @@ export const RegistrationFormState = () => {
             type="password"
             onChange={handleChange}
           />
-        </div>
-        <div>
+        </div> */}
+        <Input label="Language" name="language" onChange={handleChange} />
+        {/* <div>
           <label htmlFor="language">Language</label>
           <input id="language" name="language" onChange={handleChange} />
-        </div>
-        <div>
+        </div> */}
+        <Input label="Country" name="country" onChange={handleChange} />
+        {/* <div>
           <label htmlFor="country">Country</label>
           <input id="country" name="country" onChange={handleChange} />
-        </div>
+        </div> */}
         <div>
           <Button type="submit">Submit</Button>
         </div>
