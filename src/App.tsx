@@ -1,6 +1,6 @@
 // import { Fragment } from 'react';
 import "./App.css";
-import { RegistrationFormRefs } from "./components/RegistrationFormRefs";
+// import { RegistrationFormRefs } from "./components/RegistrationFormRefs";
 import { RegistrationFormRHF } from "./components/RegistrationFormRHF";
 // import { Generator } from "./components/Generator";
 // import { RegistrationFormState } from "./components/RegistrationFormState";
