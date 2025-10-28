@@ -1,5 +1,6 @@
 // import { Fragment } from 'react';
 import "./App.css";
+import { RegistrationPage } from "./pages/RegistrationPage";
 // import { RegistrationFormRefs } from "./components/RegistrationFormRefs";
 // import { RegistrationFormRHF } from "./components/RegistrationFormRHF";
 // import { ValueKeeper } from "./components/ValueKeeper";
@@ -16,7 +17,8 @@ function App() {
   return (
     <>
       <div>
-        <MagicMouseWrapper />
+        <RegistrationPage />
+        {/* <MagicMouseWrapper /> */}
         {/* <RegistrationFormState /> */}
         {/* <Text>Hello {123}</Text> */}
         {/* <RegistrationFormRefs /> */}
