@@ -1,13 +1,13 @@
 import { useRef, createRef, type FormEventHandler } from "react";
 // react-hook-form
-import { Button, Input } from "../ui";
+import { Button, Input } from "@/ui";
 
-type RegistrationFormDto = {
-  email: string;
-  password: string;
-  language: string;
-  country: string;
-};
+// type RegistrationFormDto = {
+//   email: string;
+//   password: string;
+//   language: string;
+//   country: string;
+// };
 
 export const RegistrationFormRefs = () => {
   const idsRef = useRef([]); // idRefs.push(4)

@@ -3,7 +3,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod"; // or 'zod/v4'
 
 // react-hook-form
-import { Button, Input } from "../ui";
+import { Button, Input } from "@/ui";
 
 const registrationFormSchema = z.object({
   email: z.email({ error: "Email is required" }),

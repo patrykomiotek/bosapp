@@ -1,6 +1,6 @@
 // import { Fragment } from 'react';
 import "./App.css";
-import { RegistrationPage } from "./features/registration/components/RegistrationPage";
+import { RegistrationPage } from "@/features/registration/components/RegistrationPage";
 // import { RegistrationFormRefs } from "./components/RegistrationFormRefs";
 // import { RegistrationFormRHF } from "./components/RegistrationFormRHF";
 // import { ValueKeeper } from "./components/ValueKeeper";

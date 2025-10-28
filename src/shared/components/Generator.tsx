@@ -1,7 +1,7 @@
 import { v4 as uuidv4 } from "uuid";
 import { useState, useCallback, type MouseEventHandler } from "react";
-import { Text } from "../ui/Text";
-import { Button } from "../ui";
+import { Text, Button } from "@/ui";
+// import { Button } from "../ui";
 
 function Generator() {
   const [uuid, setUuid] = useState(uuidv4()); // [0 - value, 1 - fn setter]

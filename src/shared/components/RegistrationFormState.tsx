@@ -3,7 +3,7 @@ import {
   type ChangeEventHandler,
   type FormEventHandler,
 } from "react";
-import { Button, Input } from "../ui";
+import { Button, Input } from "@/ui";
 
 type RegistrationFormDto = {
   email: string;
