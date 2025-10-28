@@ -5,15 +5,29 @@ import { z } from "zod"; // or 'zod/v4'
 // react-hook-form
 import { Button } from "../ui";
 
-type RegistrationFormDto = {
-  email: string;
-  password: string;
-  language: string;
-  country: string;
-};
+const registrationFormSchema = z.object({
+  email: z.email(),
+  password: z.string().min(3), // refine(data, ctx)
+  language: z.enum(["php", "js", "ts"]),
+  country: z.string().transform((value) => value.toUpperCase()),
+});
+
+type RegistrationFormDto = z.infer<typeof registrationFormSchema>;
+
+// type RegistrationFormDto = {
+//   email: string;
+//   password: string;
+//   language: string;
+//   country: string;
+// };
 
 export const RegistrationFormRHF = () => {
-  const { register, handleSubmit } = useForm<RegistrationFormDto>();
+  const { register, handleSubmit } = useForm<RegistrationFormDto>({
+    resolver: zodResolver(registrationFormSchema),
+    defaultValues: {
+      email: "test@onet.pl",
+    },
+  });
 
   const handleRegistrationSubmit: SubmitHandler<RegistrationFormDto> = (
     data
