@@ -47,7 +47,14 @@ export const RegistrationFormRefs = () => {
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <Input ref={emailFieldRef} label="E-mail" type="email" />
+        <Input
+          ref={emailFieldRef}
+          label="E-mail"
+          type="email"
+          defaultValue="test@wp.pl"
+          // value="test@wp.pl"
+          // onChange={() => null}
+        />
         {/* <div>
           <label htmlFor="email">E-mail</label>
           <input ref={emailFieldRef} id="email" name="email" type="email" />

@@ -17,7 +17,7 @@ export const RegistrationFormState = () => {
   // const [password, setPassword] = useState("");
   // const [language, setLanguage] = useState("");
   const [state, setState] = useState<RegistrationFormDto>({
-    email: "",
+    email: "test@wp.pl",
     password: "",
     language: "",
     country: "",
@@ -70,6 +70,7 @@ export const RegistrationFormState = () => {
           label="E-mail"
           name="email"
           type="email"
+          value={email}
           onChange={handleChange}
         />
         {/* <div>
