@@ -1,4 +1,9 @@
-import { type ComponentProps, useEffect, useRef } from "react";
+import {
+  type ComponentProps,
+  type ForwardedRef,
+  forwardRef,
+  useEffect,
+} from "react";
 
 const palette = {
   emerald: "#2ecc71",
@@ -13,55 +18,58 @@ type Color = keyof typeof palette;
 type Props = {
   color?: Color;
   bgColor?: Color;
+  onMount: () => void;
+  onMouseEnter: () => void;
+  onMouseLeave: () => void;
 } & ComponentProps<"button">;
 
-const MagicButton = ({
-  children,
-  color = "clouds",
-  bgColor = "emerald",
-  ...rest
-}: Props) => {
-  // const [state, setState] = useState();
-  // const refFiled = useRef();
-  const buttonRef = useRef<HTMLButtonElement>(null);
+const MagicButton = forwardRef(
+  (
+    {
+      children,
+      onMount,
+      onMouseEnter,
+      onMouseLeave,
+      color = "clouds",
+      bgColor = "emerald",
+      ...rest
+    }: Props,
+    ref: ForwardedRef<HTMLButtonElement>
+  ) => {
+    useEffect(() => {
+      // logic here
+      console.log("mounting");
+      onMount();
 
-  useEffect(() => {
-    // logic here
-    console.log("mounting");
-    if (buttonRef.current) {
-      buttonRef.current.style.backgroundColor = "#0000ff";
-    }
+      return () => {
+        console.log("unmounting");
+      };
+    }, []);
 
-    return () => {
-      console.log("unmounting");
+    const handleMouseEnter = () => {
+      onMouseEnter();
     };
-  }, []);
+    const handleMouseLeave = () => {
+      onMouseLeave();
+    };
 
-  const handleMouseEnter = () => {
-    if (buttonRef.current) {
-      buttonRef.current.style.backgroundColor = "#ff0000";
-    }
-  };
-  const handleMouseLeave = () => {
-    if (buttonRef.current) {
-      buttonRef.current.style.backgroundColor = "#00ff00";
-    }
-  };
+    return (
+      <button
+        ref={ref}
+        style={{
+          color: palette[color],
+          backgroundColor: palette[bgColor],
+        }}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+        {...rest}
+      >
+        {children}
+      </button>
+    );
+  }
+);
 
-  return (
-    <button
-      ref={buttonRef}
-      style={{
-        color: palette[color],
-        backgroundColor: palette[bgColor],
-      }}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-      {...rest}
-    >
-      {children}
-    </button>
-  );
-};
+MagicButton.displayName = "forwardRef(MagicButton)";
 
 export { MagicButton };
