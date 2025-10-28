@@ -3,7 +3,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod"; // or 'zod/v4'
 
 // react-hook-form
-import { Button } from "../ui";
+import { Button, Input } from "../ui";
 
 const registrationFormSchema = z.object({
   email: z.email({ error: "Email is required" }),
@@ -48,11 +48,16 @@ export const RegistrationFormRHF = () => {
   return (
     <div>
       <form onSubmit={handleSubmit(handleRegistrationSubmit)}>
-        {/* <Input {...register} label="E-mail" type="email" error={error.email} />  */}
-        {/* <Input {...register} label="Password" type="password" error={error.password} />  */}
-        {/* <Input {...register} label="Language" error={error.language} />  */}
-        {/* <Input {...register} label="Country" error={error.country} />  */}
-        <div>
+        <Input {...register} label="E-mail" type="email" error={errors.email} />
+        <Input
+          {...register}
+          label="Password"
+          type="password"
+          error={errors.password}
+        />
+        <Input {...register} label="Language" error={errors.language} />
+        <Input {...register} label="Country" error={errors.country} />
+        {/* <div>
           <label htmlFor="email">E-mail</label>
           <input {...register("email")} id="email" type="email" />
           {errors.email && (
@@ -79,7 +84,7 @@ export const RegistrationFormRHF = () => {
           {errors.country && (
             <p style={{ color: "red" }}>{errors.country.message}</p>
           )}
-        </div>
+        </div> */}
         <div>
           <Button type="submit">Submit</Button>
         </div>
