@@ -2,7 +2,7 @@ import { useForm, type SubmitHandler } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 
 // react-hook-form
-import { Button, Input } from "../../../ui";
+import { Button, Input } from "../../../shared/ui";
 import {
   registrationFormSchema,
   type RegistrationFormDto,
