@@ -4,6 +4,7 @@ import "./App.css";
 import { RegistrationPage } from "@/features/registration/components/RegistrationPage";
 import { useState } from "react";
 import { Button } from "@/ui";
+import { Counter } from "@/components/Counter";
 // import { RegistrationFormRefs } from "./components/RegistrationFormRefs";
 // import { RegistrationFormRHF } from "./components/RegistrationFormRHF";
 // import { ValueKeeper } from "./components/ValueKeeper";
@@ -22,8 +23,9 @@ function App() {
   return (
     <>
       <div>
-        {showViewport && <Viewport />}
-        <Button onClick={() => setShowViewport(!showViewport)}>Toggle</Button>
+        <Counter />
+        {/* {showViewport && <Viewport />} */}
+        {/* <Button onClick={() => setShowViewport(!showViewport)}>Toggle</Button> */}
         {/* <RegistrationPage /> */}
         {/* <MagicMouseWrapper /> */}
         {/* <RegistrationFormState /> */}
