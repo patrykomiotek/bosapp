@@ -23,12 +23,17 @@ type Color = keyof typeof palette;
 //   readonly [key in keyof T]: T[key];
 // };
 
-type Props = {
-  // children: string;
+// type Props = {
+//   // children: string;
+//   color?: Color;
+//   bgColor?: Color;
+//   // onClick?: () => void;
+// } & ComponentProps<"button">;
+
+interface Props extends ComponentProps<"button"> {
   color?: Color;
   bgColor?: Color;
-  // onClick?: () => void;
-} & ComponentProps<"button">;
+}
 
 // type PropsWithoutColor = Omit<Props, "color">;
 
