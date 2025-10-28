@@ -79,7 +79,7 @@ export const ProductsList = () => {
 
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
-  const [data, setData] = useState<TodoDto[]>([]);
+  const [data, setData] = useState<TodoDto>([]);
 
   useEffect(() => {
     // try/catch
@@ -96,13 +96,13 @@ export const ProductsList = () => {
         // throw new Error("test");
 
         const result = todoSchema.safeParse(responseData);
-        // if (result.success && result.data) {
-        //   setData(result.data);
-        // }
+        if (result.success && result.data) {
+          setData(result.data);
+        }
         console.log({ result });
 
-        setData(responseData);
-        setData(responseData);
+        // setData(responseData);
+        // setData(responseData);
         // setData(mockData);
       })
       .catch(() => {
