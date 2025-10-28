@@ -95,6 +95,7 @@ export const ProductsList = () => {
       .then((responseData) => {
         // throw new Error("test");
 
+        // debugger;
         const result = todoSchema.safeParse(responseData);
         if (result.success && result.data) {
           setData(result.data);
