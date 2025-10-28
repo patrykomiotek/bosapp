@@ -1,10 +1,10 @@
 // import { Fragment } from 'react';
 import "./App.css";
-import { RegistrationPage } from "./pages/RegistrationPage";
+import { RegistrationPage } from "./features/registration/components/RegistrationPage";
 // import { RegistrationFormRefs } from "./components/RegistrationFormRefs";
 // import { RegistrationFormRHF } from "./components/RegistrationFormRHF";
 // import { ValueKeeper } from "./components/ValueKeeper";
-import { MagicMouseWrapper } from "./ui/MagicButton/MagicMouseWrapper";
+// import { MagicMouseWrapper } from "./ui/MagicButton/MagicMouseWrapper";
 // import { Generator } from "./components/Generator";
 // import { RegistrationFormState } from "./components/RegistrationFormState";
 // import Kaczka from "./ui/Text/Text";
