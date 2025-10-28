@@ -48,6 +48,7 @@ export const RegistrationFormRHF = () => {
   return (
     <div>
       <form onSubmit={handleSubmit(handleRegistrationSubmit)}>
+        {/* <Input {...register} label="E-mail" type="email" error={error.email} />  */}
         <div>
           <label htmlFor="email">E-mail</label>
           <input {...register("email")} id="email" type="email" />
