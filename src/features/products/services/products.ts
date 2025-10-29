@@ -24,9 +24,11 @@ export const fetchProducts = async () => {
   }
 };
 
+// TODO: implement
+// { records: { fields: { name, description, price }}}
 export const createProducts = async (data: ProductDto) => {
   try {
-    const result = await api.post("/products", data);
+    const result = await api.post("/products", data); // TODO: change
 
     return result;
   } catch {

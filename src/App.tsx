@@ -26,47 +26,55 @@ import { ProductsDetails } from "./features/products/components/ProductsDetails"
 // import { Text } from "./ui/Text";
 // import { Button, Text } from "./ui";
 // import { Text } from './ui' -> '@/ui' -> '@bos/ui`
+import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+
+const client = new QueryClient();
 
 function App() {
   return (
     <>
       <ErrorBoundary>
-        {/* <Stepper /> */}
-        {/* <AuthProvider>
+        <QueryClientProvider client={client}>
+          {/* <Stepper /> */}
+          {/* <AuthProvider>
           <AuthInfo />
         </AuthProvider> */}
 
-        {/* <ErrorBoundary fallback={<p>Auth error</p>}> */}
-        {/* <ErrorBoundary>
+          {/* <ErrorBoundary fallback={<p>Auth error</p>}> */}
+          {/* <ErrorBoundary>
           <AuthInfo />
         </ErrorBoundary> */}
 
-        {/* <AuthCredentials /> */}
+          {/* <AuthCredentials /> */}
 
-        {/* <Button onClick={() => setIsLoggedIn((value) => !value)}>Toggle</Button> */}
-        <ProductsDetails id="recEaQjwWiME7MCYv" />
-        <ProductsList />
-        {/* <Counter /> */}
-        {/* {showViewport && <Viewport />} */}
-        {/* <Button onClick={() => setShowViewport(!showViewport)}>Toggle</Button> */}
-        {/* <RegistrationPage /> */}
-        {/* <MagicButtonWrapper /> */}
-        {/* <LevelContext.Provider value={{ value: 5 }}>
+          {/* <Button onClick={() => setIsLoggedIn((value) => !value)}>Toggle</Button> */}
+          <ProductsDetails id="recEaQjwWiME7MCYv" />
+          <ProductsList />
+          {/* <Counter /> */}
+          {/* {showViewport && <Viewport />} */}
+          {/* <Button onClick={() => setShowViewport(!showViewport)}>Toggle</Button> */}
+          {/* <RegistrationPage /> */}
+          {/* <MagicButtonWrapper /> */}
+          {/* <LevelContext.Provider value={{ value: 5 }}>
           <MagicButtonWrapper />
         </LevelContext.Provider>
 
         <LevelComponent /> */}
-        {/* <RegistrationFormState /> */}
-        {/* <Text>Hello {123}</Text> */}
-        {/* <RegistrationFormRefs /> */}
-        {/* <ValueKeeper /> */}
-        {/* <RegistrationFormRHF /> */}
-        {/* <Generator /> */}
-        {/* <Text>test</Text>
+          {/* <RegistrationFormState /> */}
+          {/* <Text>Hello {123}</Text> */}
+          {/* <RegistrationFormRefs /> */}
+          {/* <ValueKeeper /> */}
+          {/* <RegistrationFormRHF /> */}
+          {/* <Generator /> */}
+          {/* <Text>test</Text>
         <Button>Click me</Button>
         <Button color="clouds" bgColor="carrot">
           Click me
         </Button> */}
+
+          <ReactQueryDevtools initialIsOpen={true} />
+        </QueryClientProvider>
       </ErrorBoundary>
     </>
   );
