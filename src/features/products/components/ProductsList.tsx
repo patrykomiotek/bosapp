@@ -1,10 +1,13 @@
 import { useApi } from "@/hooks/useApi";
 import type { ApiListResponse } from "shared/contracts/ApiListResponse";
 import type { ProductDto } from "../contracts/Product.dto";
+import { fetchProducts } from "../services/products";
 
 export const ProductsList = () => {
+  // const { isLoading, isError, data } =
+  //   useApi<ApiListResponse<ProductDto>>("/products"); // "/products" | fetchProducts
   const { isLoading, isError, data } =
-    useApi<ApiListResponse<ProductDto>>("/products");
+    useApi<ApiListResponse<ProductDto>>(fetchProducts); // "/products" | fetchProducts
 
   const products = data?.records;
 
