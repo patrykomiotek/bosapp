@@ -29,7 +29,7 @@ function App() {
   return (
     <>
       <div>
-        <AuthContext.Provider value={{ isLoggedIn }}>
+        <AuthContext.Provider value={{ isLoggedIn, setIsLoggedIn }}>
           <AuthInfo />
         </AuthContext.Provider>
 
