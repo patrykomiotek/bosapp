@@ -13,34 +13,34 @@ export const ProductsList = () => {
   const [isError, setIsError] = useState(false);
   const [data, setData] = useState<ProductDto[]>([]);
 
-  useEffect(() => {
-    // try/catch
-    fetch(`${API_URL}/products`, {
-      headers: {
-        Authorization: `Bearer ${API_TOKEN}`,
-      },
-    })
-      .then((response) => {
-        console.log({ response });
-        if (response.ok) {
-          // 200, 201
-          return response.json();
-        }
-        throw new Error("Response error");
-      })
-      .then((responseData) => {
-        const apiResponse = responseData as ApiListResponse<ProductDto>;
+  const loadData = async () => {
+    try {
+      const response = await fetch(`${API_URL}/products`, {
+        headers: {
+          Authorization: `Bearer ${API_TOKEN}`,
+        },
+      });
+
+      console.log({ response });
+      if (response.ok) {
+        // 200, 201
+        const responseData: ApiListResponse<ProductDto> = await response.json();
 
         // validator
-        setData(apiResponse.records);
-      })
-      .catch(() => {
-        console.error("Oh no!");
-        setIsError(true);
-      })
-      .finally(() => {
-        setIsLoading(false);
-      });
+        setData(responseData.records);
+      } else {
+        throw new Error("Response error");
+      }
+    } catch {
+      console.error("Oh no!");
+      setIsError(true);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    loadData();
   }, []);
 
   return (
