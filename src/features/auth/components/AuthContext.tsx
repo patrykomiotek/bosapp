@@ -1,3 +1,4 @@
+// Rect Context Hook Pattern
 import { createContext, useContext, useState } from "react";
 
 type AuthContextType = {
@@ -19,13 +20,18 @@ export const useAuthContext = () => {
   throw new Error("Component should be placed inside AuthProvider");
 };
 
-export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
+const useAuth = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(true);
 
   const toggle = () => setIsLoggedIn((value) => !value);
   const logIn = () => setIsLoggedIn(true);
   const logOut = () => setIsLoggedIn(false);
 
+  return { isLoggedIn, toggle, logIn, logOut };
+};
+
+export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
+  const { isLoggedIn, toggle, logIn, logOut } = useAuth();
   return (
     <AuthContext.Provider value={{ isLoggedIn, toggle, logIn, logOut }}>
       {children}
