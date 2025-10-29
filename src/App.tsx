@@ -13,6 +13,7 @@ import { AuthInfo } from "./features/auth/components/AuthInfo";
 import { AuthProvider } from "./features/auth/components/AuthContext";
 import { AuthCredentials } from "./features/auth/components/AuthCredentials";
 import { ErrorBoundary } from "@/components/ErrorBoundary";
+import { Stepper } from "@/components/Stepper";
 // import { RegistrationFormRefs } from "./components/RegistrationFormRefs";
 // import { RegistrationFormRHF } from "./components/RegistrationFormRHF";
 // import { ValueKeeper } from "./components/ValueKeeper";
@@ -29,14 +30,15 @@ function App() {
   return (
     <>
       <ErrorBoundary>
-        <AuthProvider>
+        <Stepper />
+        {/* <AuthProvider>
           <AuthInfo />
-        </AuthProvider>
+        </AuthProvider> */}
 
         {/* <ErrorBoundary fallback={<p>Auth error</p>}> */}
-        <ErrorBoundary>
+        {/* <ErrorBoundary>
           <AuthInfo />
-        </ErrorBoundary>
+        </ErrorBoundary> */}
 
         {/* <AuthCredentials /> */}
 
