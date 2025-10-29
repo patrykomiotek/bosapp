@@ -10,6 +10,7 @@ import { MagicButtonWrapper } from "shared/ui/MagicButton/MagicButtonWrapper";
 import { LevelContext } from "@/components/LevelContext";
 import { LevelComponent } from "@/components/LevelComponent";
 import { AuthInfo } from "./features/auth/components/AuthInfo";
+import { AuthContext } from "./features/auth/components/AuthContext";
 // import { RegistrationFormRefs } from "./components/RegistrationFormRefs";
 // import { RegistrationFormRHF } from "./components/RegistrationFormRHF";
 // import { ValueKeeper } from "./components/ValueKeeper";
@@ -23,12 +24,14 @@ import { AuthInfo } from "./features/auth/components/AuthInfo";
 // import { Text } from './ui' -> '@/ui' -> '@bos/ui`
 
 function App() {
-  const [showViewport, setShowViewport] = useState(true);
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
 
   return (
     <>
       <div>
-        <AuthInfo />
+        <AuthContext.Provider value={{ isLoggedIn }}>
+          <AuthInfo />
+        </AuthContext.Provider>
         {/* <ProductsList /> */}
         {/* <Counter /> */}
         {/* {showViewport && <Viewport />} */}

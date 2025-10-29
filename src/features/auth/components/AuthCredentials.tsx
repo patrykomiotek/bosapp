@@ -1,3 +1,8 @@
+import { useContext } from "react";
+import { AuthContext } from "./AuthContext";
+
 export const AuthCredentials = () => {
-  return <p></p>;
+  const context = useContext(AuthContext);
+
+  return <p>Is user logged in? {context.isLoggedIn ? "YES" : "NO"}</p>;
 };
