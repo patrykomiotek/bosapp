@@ -14,6 +14,7 @@ import { AuthProvider } from "./features/auth/components/AuthContext";
 import { AuthCredentials } from "./features/auth/components/AuthCredentials";
 import { ErrorBoundary } from "@/components/ErrorBoundary";
 import { Stepper } from "@/components/Stepper";
+import { ProductsDetails } from "./features/products/components/ProductsDetails";
 // import { RegistrationFormRefs } from "./components/RegistrationFormRefs";
 // import { RegistrationFormRHF } from "./components/RegistrationFormRHF";
 // import { ValueKeeper } from "./components/ValueKeeper";
@@ -43,6 +44,7 @@ function App() {
         {/* <AuthCredentials /> */}
 
         {/* <Button onClick={() => setIsLoggedIn((value) => !value)}>Toggle</Button> */}
+        <ProductsDetails id="recEaQjwWiME7MCYv" />
         <ProductsList />
         {/* <Counter /> */}
         {/* {showViewport && <Viewport />} */}
