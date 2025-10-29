@@ -1,54 +1,23 @@
-import { useEffect, useState } from "react";
-import type { ProductDto } from "../contracts/Product.dto";
+import { useApi } from "@/hooks/useApi";
 import type { ApiListResponse } from "shared/contracts/ApiListResponse";
-
-const API_URL = import.meta.env.VITE_API_URL;
-const API_TOKEN = import.meta.env.VITE_API_TOKEN;
+import type { ProductDto } from "../contracts/Product.dto";
 
 export const ProductsList = () => {
-  // const {isLoading, isError, data} = useApi<TodoDto[]>('https://jsonplaceholder.typicode.com/todos')
-  // const {isLoading, isError, data} = useApi<TodoDto>('https://jsonplaceholder.typicode.com/todos/123')
+  const { isLoading, isError, data } =
+    useApi<ApiListResponse<ProductDto>>("/products");
 
-  const [isLoading, setIsLoading] = useState(true);
-  const [isError, setIsError] = useState(false);
-  const [data, setData] = useState<ProductDto[]>([]);
+  const products = data?.records;
 
-  const loadData = async () => {
-    try {
-      const response = await fetch(`${API_URL}/products`, {
-        headers: {
-          Authorization: `Bearer ${API_TOKEN}`,
-        },
-      });
-
-      console.log({ response });
-      if (response.ok) {
-        // 200, 201
-        const responseData: ApiListResponse<ProductDto> = await response.json();
-
-        // validator
-        setData(responseData.records);
-      } else {
-        throw new Error("Response error");
-      }
-    } catch {
-      console.error("Oh no!");
-      setIsError(true);
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
-  useEffect(() => {
-    loadData();
-  }, []);
+  if (!products) {
+    return <p>Fail to fetch products</p>;
+  }
 
   return (
     <div>
       <h1>Products</h1>
       {isLoading && <p>Loading...</p>}
       {isError && <p>Oh no! An error has occurred!</p>}
-      {data.map((elem) => {
+      {products.map((elem) => {
         return (
           <div key={elem.id}>
             <h2>{elem.fields.name}</h2>
