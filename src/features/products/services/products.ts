@@ -1,6 +1,6 @@
 import axios from "axios";
 import type { ApiListResponse } from "shared/contracts/ApiListResponse";
-import type { ProductDto } from "../contracts/Product.dto";
+import type { CreateProductDto, ProductDto } from "../contracts/Product.dto";
 
 const API_URL = import.meta.env.VITE_API_URL;
 const API_TOKEN = import.meta.env.VITE_API_TOKEN;
@@ -25,10 +25,16 @@ export const fetchProducts = async () => {
 };
 
 // TODO: implement
-// { records: { fields: { name, description, price }}}
-export const createProducts = async (data: ProductDto) => {
+// { records: [{ fields: { name, description, price }]}}
+export const createProduct = async (data: CreateProductDto) => {
   try {
-    const result = await api.post("/products", data); // TODO: change
+    const result = await api.post("/products", {
+      records: [
+        {
+          fields: data,
+        },
+      ],
+    }); // TODO: change
 
     return result;
   } catch {

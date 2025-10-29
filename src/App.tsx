@@ -28,6 +28,7 @@ import { ProductsDetails } from "./features/products/components/ProductsDetails"
 // import { Text } from './ui' -> '@/ui' -> '@bos/ui`
 import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import { CreateProductForm } from "./features/products/components/CreateProductForm";
 
 const client = new QueryClient();
 
@@ -50,6 +51,7 @@ function App() {
 
           {/* <Button onClick={() => setIsLoggedIn((value) => !value)}>Toggle</Button> */}
           <ProductsDetails id="recEaQjwWiME7MCYv" />
+          <CreateProductForm />
           <ProductsList />
           {/* <Counter /> */}
           {/* {showViewport && <Viewport />} */}
