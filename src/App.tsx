@@ -12,6 +12,7 @@ import { LevelComponent } from "@/components/LevelComponent";
 import { AuthInfo } from "./features/auth/components/AuthInfo";
 import { AuthProvider } from "./features/auth/components/AuthContext";
 import { AuthCredentials } from "./features/auth/components/AuthCredentials";
+import { ErrorBoundary } from "@/components/ErrorBoundary";
 // import { RegistrationFormRefs } from "./components/RegistrationFormRefs";
 // import { RegistrationFormRHF } from "./components/RegistrationFormRHF";
 // import { ValueKeeper } from "./components/ValueKeeper";
@@ -27,10 +28,15 @@ import { AuthCredentials } from "./features/auth/components/AuthCredentials";
 function App() {
   return (
     <>
-      <div>
+      <ErrorBoundary>
         <AuthProvider>
           <AuthInfo />
         </AuthProvider>
+
+        {/* <ErrorBoundary fallback={<p>Auth error</p>}> */}
+        <ErrorBoundary>
+          <AuthInfo />
+        </ErrorBoundary>
 
         {/* <AuthCredentials /> */}
 
@@ -57,7 +63,7 @@ function App() {
         <Button color="clouds" bgColor="carrot">
           Click me
         </Button> */}
-      </div>
+      </ErrorBoundary>
     </>
   );
 }
