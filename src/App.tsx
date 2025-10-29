@@ -11,6 +11,7 @@ import { LevelContext } from "@/components/LevelContext";
 import { LevelComponent } from "@/components/LevelComponent";
 import { AuthInfo } from "./features/auth/components/AuthInfo";
 import { AuthContext } from "./features/auth/components/AuthContext";
+import { AuthCredentials } from "./features/auth/components/AuthCredentials";
 // import { RegistrationFormRefs } from "./components/RegistrationFormRefs";
 // import { RegistrationFormRHF } from "./components/RegistrationFormRHF";
 // import { ValueKeeper } from "./components/ValueKeeper";
@@ -26,12 +27,18 @@ import { AuthContext } from "./features/auth/components/AuthContext";
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(true);
 
+  const toggle = () => setIsLoggedIn((value) => !value);
+  const logIn = () => setIsLoggedIn(true);
+  const logOut = () => setIsLoggedIn(false);
+
   return (
     <>
       <div>
-        <AuthContext.Provider value={{ isLoggedIn, setIsLoggedIn }}>
+        <AuthContext.Provider value={{ isLoggedIn, toggle, logIn, logOut }}>
           <AuthInfo />
         </AuthContext.Provider>
+
+        <AuthCredentials />
 
         {/* <Button onClick={() => setIsLoggedIn((value) => !value)}>Toggle</Button> */}
         {/* <ProductsList /> */}

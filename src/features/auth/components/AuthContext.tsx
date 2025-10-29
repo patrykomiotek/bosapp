@@ -1,11 +1,11 @@
-import { createContext, type Dispatch, type SetStateAction } from "react";
+import { createContext } from "react";
 
 type AuthContextType = {
   isLoggedIn: boolean;
-  setIsLoggedIn: Dispatch<SetStateAction<boolean>>;
+  // setIsLoggedIn: Dispatch<SetStateAction<boolean>>;
+  toggle: () => void;
+  logIn: () => void;
+  logOut: () => void;
 };
 
-export const AuthContext = createContext<AuthContextType>({
-  isLoggedIn: false,
-  setIsLoggedIn: () => null,
-});
+export const AuthContext = createContext<AuthContextType | null>(null);
