@@ -10,7 +10,7 @@ import { MagicButtonWrapper } from "shared/ui/MagicButton/MagicButtonWrapper";
 import { LevelContext } from "@/components/LevelContext";
 import { LevelComponent } from "@/components/LevelComponent";
 import { AuthInfo } from "./features/auth/components/AuthInfo";
-import { AuthContext } from "./features/auth/components/AuthContext";
+import { AuthProvider } from "./features/auth/components/AuthContext";
 import { AuthCredentials } from "./features/auth/components/AuthCredentials";
 // import { RegistrationFormRefs } from "./components/RegistrationFormRefs";
 // import { RegistrationFormRHF } from "./components/RegistrationFormRHF";
@@ -25,20 +25,14 @@ import { AuthCredentials } from "./features/auth/components/AuthCredentials";
 // import { Text } from './ui' -> '@/ui' -> '@bos/ui`
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
-
-  const toggle = () => setIsLoggedIn((value) => !value);
-  const logIn = () => setIsLoggedIn(true);
-  const logOut = () => setIsLoggedIn(false);
-
   return (
     <>
       <div>
-        <AuthContext.Provider value={{ isLoggedIn, toggle, logIn, logOut }}>
+        <AuthProvider>
           <AuthInfo />
-        </AuthContext.Provider>
+        </AuthProvider>
 
-        <AuthCredentials />
+        {/* <AuthCredentials /> */}
 
         {/* <Button onClick={() => setIsLoggedIn((value) => !value)}>Toggle</Button> */}
         {/* <ProductsList /> */}
