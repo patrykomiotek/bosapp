@@ -1,25 +1,34 @@
+import axios from "axios";
 import type { ApiListResponse } from "shared/contracts/ApiListResponse";
 import type { ProductDto } from "../contracts/Product.dto";
 
 const API_URL = import.meta.env.VITE_API_URL;
 const API_TOKEN = import.meta.env.VITE_API_TOKEN;
 
+const api = axios.create({
+  baseURL: API_URL,
+  headers: {
+    Authorization: `Bearer ${API_TOKEN}`,
+  },
+});
+
 export const fetchProducts = async () => {
   try {
-    const result = await fetch(`${API_URL}/products`, {
-      headers: {
-        Authorization: `Bearer ${API_TOKEN}`,
-      },
-    });
-    if (result.ok) {
-      const data: ApiListResponse<ProductDto> = await result.json();
+    const result = await api.get<ApiListResponse<ProductDto>>("/products");
+    // validation
 
-      // validator
-      // change structure
+    return result.data;
+  } catch {
+    // logger
+    return undefined;
+  }
+};
 
-      return data;
-    }
-    throw new Error("Request fail");
+export const createProducts = async (data: ProductDto) => {
+  try {
+    const result = await api.post("/products", data);
+
+    return result;
   } catch {
     // logger
     return undefined;
@@ -28,20 +37,12 @@ export const fetchProducts = async () => {
 
 export const fetchProduct = async (id: string) => {
   try {
-    const result = await fetch(`${API_URL}/products/${id}`, {
-      headers: {
-        Authorization: `Bearer ${API_TOKEN}`,
-      },
-    });
-    if (result.ok) {
-      const data: ProductDto = await result.json();
+    const result = await api.get<ProductDto>(`/products/${id}`);
 
-      // validator
-      // change structure
+    // validator
+    // change structure
 
-      return data;
-    }
-    throw new Error("Request fail");
+    return result.data;
   } catch {
     // logger
     return undefined;
