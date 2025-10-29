@@ -6,10 +6,13 @@ import { useState } from "react";
 import { Button } from "@/ui";
 import { Counter } from "@/components/Counter";
 import { ProductsList } from "./features/products/components/ProductsList";
+import { MagicButtonWrapper } from "shared/ui/MagicButton/MagicButtonWrapper";
+import { LevelContext } from "@/components/LevelContext";
+import { LevelComponent } from "@/components/LevelComponent";
 // import { RegistrationFormRefs } from "./components/RegistrationFormRefs";
 // import { RegistrationFormRHF } from "./components/RegistrationFormRHF";
 // import { ValueKeeper } from "./components/ValueKeeper";
-// import { MagicMouseWrapper } from "./ui/MagicButton/MagicMouseWrapper";
+// import { MagicButtonWrapper } from "./ui/MagicButton/MagicButtonWrapper";
 // import { Generator } from "./components/Generator";
 // import { RegistrationFormState } from "./components/RegistrationFormState";
 // import Kaczka from "./ui/Text/Text";
@@ -24,12 +27,17 @@ function App() {
   return (
     <>
       <div>
-        <ProductsList />
+        {/* <ProductsList /> */}
         {/* <Counter /> */}
         {/* {showViewport && <Viewport />} */}
         {/* <Button onClick={() => setShowViewport(!showViewport)}>Toggle</Button> */}
         {/* <RegistrationPage /> */}
-        {/* <MagicMouseWrapper /> */}
+        {/* <MagicButtonWrapper /> */}
+        <LevelContext.Provider value={{ value: 5 }}>
+          <MagicButtonWrapper />
+        </LevelContext.Provider>
+
+        <LevelComponent />
         {/* <RegistrationFormState /> */}
         {/* <Text>Hello {123}</Text> */}
         {/* <RegistrationFormRefs /> */}

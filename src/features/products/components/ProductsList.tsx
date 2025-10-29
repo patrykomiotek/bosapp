@@ -115,6 +115,9 @@ export const ProductsList = () => {
       });
   }, []);
 
+  useEffect(() => {}, [isLoading]); //
+  useEffect(() => {}, [isError]); //
+
   return (
     <div>
       <h1>Products</h1>

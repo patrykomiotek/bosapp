@@ -1,3 +1,4 @@
+import { LevelComponent } from "@/components/LevelComponent";
 import {
   type ComponentProps,
   type ForwardedRef,
@@ -54,18 +55,21 @@ const MagicButton = forwardRef(
     };
 
     return (
-      <button
-        ref={ref}
-        style={{
-          color: palette[color],
-          backgroundColor: palette[bgColor],
-        }}
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
-        {...rest}
-      >
-        {children}
-      </button>
+      <>
+        <LevelComponent />
+        <button
+          ref={ref}
+          style={{
+            color: palette[color],
+            backgroundColor: palette[bgColor],
+          }}
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+          {...rest}
+        >
+          {children}
+        </button>
+      </>
     );
   }
 );

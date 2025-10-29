@@ -1,7 +1,8 @@
 import { useRef } from "react";
 import { MagicButton } from "./MagicButton";
+import { LevelComponent } from "@/components/LevelComponent";
 
-export const MagicMouseWrapper = () => {
+export const MagicButtonWrapper = () => {
   const buttonRef = useRef<HTMLButtonElement>(null);
 
   const handleOnMount = () => {
@@ -23,13 +24,15 @@ export const MagicMouseWrapper = () => {
   };
 
   return (
-    <MagicButton
-      ref={buttonRef}
-      onMount={handleOnMount}
-      onMouseEnter={handleOnMouseEnter}
-      onMouseLeave={handleOnMouseLeave}
-    >
-      Test me!
-    </MagicButton>
+    <>
+      <MagicButton
+        ref={buttonRef}
+        onMount={handleOnMount}
+        onMouseEnter={handleOnMouseEnter}
+        onMouseLeave={handleOnMouseLeave}
+      >
+        Test me!
+      </MagicButton>
+    </>
   );
 };
