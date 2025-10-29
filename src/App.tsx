@@ -30,7 +30,7 @@ function App() {
   return (
     <>
       <ErrorBoundary>
-        <Stepper />
+        {/* <Stepper /> */}
         {/* <AuthProvider>
           <AuthInfo />
         </AuthProvider> */}
@@ -43,7 +43,7 @@ function App() {
         {/* <AuthCredentials /> */}
 
         {/* <Button onClick={() => setIsLoggedIn((value) => !value)}>Toggle</Button> */}
-        {/* <ProductsList /> */}
+        <ProductsList />
         {/* <Counter /> */}
         {/* {showViewport && <Viewport />} */}
         {/* <Button onClick={() => setShowViewport(!showViewport)}>Toggle</Button> */}

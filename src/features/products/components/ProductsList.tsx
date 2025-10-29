@@ -1,77 +1,9 @@
 import { useEffect, useState } from "react";
-import { z } from "zod";
+import type { ProductDto } from "../contracts/Product.dto";
+import type { ApiListResponse } from "shared/contracts/ApiListResponse";
 
-// type BrandedId = number & { _________brand: "id" };
-
-type Brand<K, T> = K & { __brand: T };
-// type Brand<K> = K & { __brand: unique Symbol };
-
-// const string1: string = 'ala';
-// const string2: string = 'ola';
-
-// const string3: Symbol = 'ala'
-// const string4: Symbol = 'ola'
-
-type ProductId = Brand<number, "productId">;
-// type CategoryId = Brand<number, "categoryId">;
-
-interface ProductDto {
-  id: ProductId;
-  name: string;
-  description: string;
-}
-
-const todoSchema = z.array(
-  z.object({
-    userId: z.number(),
-    id: z.number(),
-    title: z.string(),
-    completed: z.boolean(),
-  })
-);
-
-// interface TodoDto {
-//   userId: number;
-//   id: number;
-//   title: string;
-//   completed: boolean;
-// }
-type TodoDto = z.infer<typeof todoSchema>;
-
-// interface CategoryDto {
-//   id: CategoryId;
-//   name: string;
-// }
-
-// const updateProduct = (id: ProductId) => {
-//   // fetch()
-// };
-// const product1: ProductDto = {
-//   id: 5 as ProductId,
-//   name: "Buty",
-//   description: "Test1",
-// };
-// updateProduct(product1.id);
-
-// const category1: CategoryDto = {
-//   id: 43 as CategoryId,
-//   name: "Category 1",
-// };
-// updateProduct(category1.id); // number & { __brand: 'productId' } !== number & { __brand: 'categoryId' }
-
-// Data Transfer Object
-const mockData: ProductDto[] = [
-  {
-    id: 1 as ProductId, // publicId
-    name: "Prod 1",
-    description: "Lorem ipsum",
-  },
-  {
-    id: 2 as ProductId,
-    name: "Prod 2",
-    description: "sit dolor",
-  },
-];
+const API_URL = import.meta.env.VITE_API_URL;
+const API_TOKEN = import.meta.env.VITE_API_TOKEN;
 
 export const ProductsList = () => {
   // const {isLoading, isError, data} = useApi<TodoDto[]>('https://jsonplaceholder.typicode.com/todos')
@@ -79,11 +11,15 @@ export const ProductsList = () => {
 
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
-  const [data, setData] = useState<TodoDto>([]);
+  const [data, setData] = useState<ProductDto[]>([]);
 
   useEffect(() => {
     // try/catch
-    fetch("https://jsonplaceholder.typicode.com/todos")
+    fetch(`${API_URL}/products`, {
+      headers: {
+        Authorization: `Bearer ${API_TOKEN}`,
+      },
+    })
       .then((response) => {
         console.log({ response });
         if (response.ok) {
@@ -93,18 +29,10 @@ export const ProductsList = () => {
         throw new Error("Response error");
       })
       .then((responseData) => {
-        // throw new Error("test");
+        const apiResponse = responseData as ApiListResponse<ProductDto>;
 
-        // debugger;
-        const result = todoSchema.safeParse(responseData);
-        if (result.success && result.data) {
-          setData(result.data);
-        }
-        console.log({ result });
-
-        // setData(responseData);
-        // setData(responseData);
-        // setData(mockData);
+        // validator
+        setData(apiResponse.records);
       })
       .catch(() => {
         console.error("Oh no!");
@@ -115,16 +43,19 @@ export const ProductsList = () => {
       });
   }, []);
 
-  useEffect(() => {}, [isLoading]); //
-  useEffect(() => {}, [isError]); //
-
   return (
     <div>
       <h1>Products</h1>
       {isLoading && <p>Loading...</p>}
       {isError && <p>Oh no! An error has occurred!</p>}
       {data.map((elem) => {
-        return <div key={elem.id}>{elem.title}</div>;
+        return (
+          <div key={elem.id}>
+            <h2>{elem.fields.name}</h2>
+            <p>{elem.fields.description}</p>
+            <p>${elem.fields.price}</p>
+          </div>
+        );
       })}
     </div>
   );
