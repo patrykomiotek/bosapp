@@ -9,6 +9,7 @@ import { ProductsList } from "./features/products/components/ProductsList";
 import { MagicButtonWrapper } from "shared/ui/MagicButton/MagicButtonWrapper";
 import { LevelContext } from "@/components/LevelContext";
 import { LevelComponent } from "@/components/LevelComponent";
+import { AuthInfo } from "./features/auth/components/AuthInfo";
 // import { RegistrationFormRefs } from "./components/RegistrationFormRefs";
 // import { RegistrationFormRHF } from "./components/RegistrationFormRHF";
 // import { ValueKeeper } from "./components/ValueKeeper";
@@ -27,17 +28,18 @@ function App() {
   return (
     <>
       <div>
+        <AuthInfo />
         {/* <ProductsList /> */}
         {/* <Counter /> */}
         {/* {showViewport && <Viewport />} */}
         {/* <Button onClick={() => setShowViewport(!showViewport)}>Toggle</Button> */}
         {/* <RegistrationPage /> */}
         {/* <MagicButtonWrapper /> */}
-        <LevelContext.Provider value={{ value: 5 }}>
+        {/* <LevelContext.Provider value={{ value: 5 }}>
           <MagicButtonWrapper />
         </LevelContext.Provider>
 
-        <LevelComponent />
+        <LevelComponent /> */}
         {/* <RegistrationFormState /> */}
         {/* <Text>Hello {123}</Text> */}
         {/* <RegistrationFormRefs /> */}

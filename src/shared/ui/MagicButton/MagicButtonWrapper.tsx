@@ -1,6 +1,5 @@
 import { useRef } from "react";
 import { MagicButton } from "./MagicButton";
-import { LevelComponent } from "@/components/LevelComponent";
 
 export const MagicButtonWrapper = () => {
   const buttonRef = useRef<HTMLButtonElement>(null);
