@@ -32,6 +32,8 @@ function App() {
         <AuthContext.Provider value={{ isLoggedIn }}>
           <AuthInfo />
         </AuthContext.Provider>
+
+        {/* <Button onClick={() => setIsLoggedIn((value) => !value)}>Toggle</Button> */}
         {/* <ProductsList /> */}
         {/* <Counter /> */}
         {/* {showViewport && <Viewport />} */}
