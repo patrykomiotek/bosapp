@@ -45,6 +45,14 @@ export const routes = routerFunction([
         path: "/contact",
         element: <ContactPage />,
       },
+      // {
+      //   path: "/products/:id", // :productId -> useParams
+      //   element: <ProductsDetailsPage />,
+      // },
+      // {
+      //   path: "/products",
+      //   element: <ProductsPage />,
+      // },
     ],
   },
 
