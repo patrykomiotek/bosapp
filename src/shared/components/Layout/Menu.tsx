@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom";
 import { ROUTE } from "../../../routes";
+import { Cart } from "@/features/cart/Cart";
 
 export const Menu = () => {
   return (
@@ -10,7 +11,7 @@ export const Menu = () => {
             Home
           </NavLink>
         </li>
-        <li>
+        {/* <li>
           <NavLink to="/registration" className="text-blue-600">
             Registration
           </NavLink>
@@ -29,7 +30,7 @@ export const Menu = () => {
           <NavLink to="/stepper" className="text-blue-600">
             Stepper
           </NavLink>
-        </li>
+        </li> */}
         <li>
           <NavLink to="/stepper-redux" className="text-blue-600">
             Stepper Redux
@@ -50,7 +51,9 @@ export const Menu = () => {
             Contact
           </NavLink>
         </li>
-        <li>Basket: 0</li>
+        <li>
+          <Cart />
+        </li>
       </ul>
     </nav>
   );
