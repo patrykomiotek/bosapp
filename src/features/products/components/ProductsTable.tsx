@@ -15,6 +15,7 @@ import {
   // TableCell,
   // TableRow,
 } from "@tanstack/react-table";
+import { ChevronUpIcon, ChevronDownIcon } from "@heroicons/react/16/solid";
 
 type Props = {
   products: ProductDto[];
@@ -121,6 +122,17 @@ export const ProductsTable = ({ products }: Props) => {
                   {flexRender(
                     header.column.columnDef.header,
                     header.getContext()
+                  )}
+                  {header.column.getCanSort() && (
+                    <div className="flex flex-col">
+                      {header.column.getIsSorted() === "asc" ? (
+                        <ChevronUpIcon className="h-3 w-3" />
+                      ) : header.column.getIsSorted() === "desc" ? (
+                        <ChevronDownIcon className="h-3 w-3" />
+                      ) : (
+                        <div className="h-3 w-3" />
+                      )}
+                    </div>
                   )}
                 </th>
               ))}
