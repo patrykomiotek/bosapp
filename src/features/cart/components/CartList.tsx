@@ -11,6 +11,8 @@ export const CartList = () => {
 
   console.log({ products });
 
+  // clear() -> { type: 'cart/clear' } (action creator)
+  // dispatch({ type: 'cart/clear' })
   return (
     <div>
       <Button onClick={() => dispatch(clear())}>Clear</Button>

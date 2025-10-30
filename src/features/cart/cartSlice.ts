@@ -23,6 +23,7 @@ export const cartSlice = createSlice({
       ); // 5
     },
     clear: (state) => {
+      // cart/clear
       state.products = [];
     },
   },
