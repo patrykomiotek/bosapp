@@ -21,11 +21,12 @@ export class ErrorBoundary extends Component<Props, State> {
     attempts: 0,
   };
 
-  static getDerivedStateFromError(error) {
+  static getDerivedStateFromError() {
     return { hasError: true };
   }
 
-  componentDidCatch(error: Error, errorInfo: ErrorInfo): void {
+  // componentDidCatch(error: Error, errorInfo: ErrorInfo): void {
+  componentDidCatch(error: Error): void {
     // Sentry.captureException(error);
     console.error(error); // -> Logger.error()
   }
