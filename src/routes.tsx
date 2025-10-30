@@ -10,6 +10,7 @@ import { CreateProductPage } from "./features/products/pages/CreateProductPage";
 import { Generator } from "@/components/Generator";
 import { Stepper } from "@/components/Stepper";
 import { AuthInfo } from "./features/auth/components/AuthInfo";
+import { StepperRedux } from "@/components/StepperRedux";
 
 // dev: createBrowserRouter
 // prod: createMemoryRouter
@@ -50,6 +51,10 @@ export const routes = routerFunction([
       {
         path: "/stepper",
         element: <Stepper />,
+      },
+      {
+        path: "/stepper-redux",
+        element: <StepperRedux />,
       },
       {
         path: "/registration",

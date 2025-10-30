@@ -31,6 +31,11 @@ export const Menu = () => {
           </NavLink>
         </li>
         <li>
+          <NavLink to="/stepper-redux" className="text-blue-600">
+            Stepper Redux
+          </NavLink>
+        </li>
+        <li>
           <NavLink to="/products" className="text-blue-600">
             Products
           </NavLink>
