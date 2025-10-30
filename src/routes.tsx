@@ -2,6 +2,8 @@ import { createBrowserRouter, createMemoryRouter } from "react-router-dom";
 import { HomePage } from "./pages/HomePage";
 import { RegistrationPage } from "./features/registration/components/RegistrationPage";
 import { Layout } from "@/components/Layout/Layout";
+import { AboutPage } from "./pages/AboutPage";
+import { ContactPage } from "./pages/ContactPage";
 
 // dev: createBrowserRouter
 // prod: createMemoryRouter
@@ -34,6 +36,14 @@ export const routes = routerFunction([
       {
         path: "/registration",
         element: <RegistrationPage />,
+      },
+      {
+        path: "/about",
+        element: <AboutPage />,
+      },
+      {
+        path: "/contact",
+        element: <ContactPage />,
       },
     ],
   },

@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { ROUTE } from "../../../routes";
 
 export const Menu = () => {
@@ -6,14 +6,24 @@ export const Menu = () => {
     <nav className="mb-8">
       <ul className="flex gap-2">
         <li>
-          <Link to={ROUTE.HOME.path} className="text-blue-600">
+          <NavLink to={ROUTE.HOME.path} className="text-blue-600">
             Home
-          </Link>
+          </NavLink>
         </li>
         <li>
-          <Link to="/registration" className="text-blue-600">
+          <NavLink to="/registration" className="text-blue-600">
             Registration
-          </Link>
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/about" className="text-blue-600">
+            About
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/contact" className="text-blue-600">
+            Contact
+          </NavLink>
         </li>
       </ul>
     </nav>
