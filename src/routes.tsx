@@ -7,6 +7,9 @@ import { ContactPage } from "./pages/ContactPage";
 import { ProductsListPage } from "./features/products/pages/ProductsListPage";
 import { ProductsDetailsPage } from "./features/products/pages/ProductsDetailsPage";
 import { CreateProductPage } from "./features/products/pages/CreateProductPage";
+import { Generator } from "@/components/Generator";
+import { Stepper } from "@/components/Stepper";
+import { AuthInfo } from "./features/auth/components/AuthInfo";
 
 // dev: createBrowserRouter
 // prod: createMemoryRouter
@@ -37,6 +40,18 @@ export const routes = routerFunction([
         element: <HomePage />,
       },
       {
+        path: "/generator",
+        element: <Generator />,
+      },
+      {
+        path: "/auth",
+        element: <AuthInfo />,
+      },
+      {
+        path: "/stepper",
+        element: <Stepper />,
+      },
+      {
         path: "/registration",
         element: <RegistrationPage />,
       },
@@ -59,6 +74,12 @@ export const routes = routerFunction([
       {
         path: "/products",
         element: <ProductsListPage />,
+        // children: [
+        //   {
+        //     path: "create",
+
+        //   },
+        // ],
       },
     ],
   },

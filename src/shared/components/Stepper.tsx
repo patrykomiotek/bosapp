@@ -57,8 +57,8 @@ export const Stepper = () => {
   };
 
   return (
-    <div>
-      <div>
+    <div className="space-y-2">
+      <div className="flex gap-2 items-center">
         <Button onClick={() => dispatch({ type: ActionType.DECREMENT })}>
           -
         </Button>

@@ -16,6 +16,21 @@ export const Menu = () => {
           </NavLink>
         </li>
         <li>
+          <NavLink to="/generator" className="text-blue-600">
+            Generator
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/auth" className="text-blue-600">
+            Auth info
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/stepper" className="text-blue-600">
+            Stepper
+          </NavLink>
+        </li>
+        <li>
           <NavLink to="/products" className="text-blue-600">
             Products
           </NavLink>
@@ -30,6 +45,7 @@ export const Menu = () => {
             Contact
           </NavLink>
         </li>
+        <li>Basket: 0</li>
       </ul>
     </nav>
   );
