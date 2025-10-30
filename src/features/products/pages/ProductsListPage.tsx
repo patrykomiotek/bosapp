@@ -4,8 +4,9 @@
 import { fetchProducts } from "../services/products";
 import { useQuery } from "@tanstack/react-query";
 import { Button, Header } from "@/ui";
-import { ProductsList } from "../components/ProductsList";
+// import { ProductsList } from "../components/ProductsList";
 import { Link } from "react-router-dom";
+import { ProductsTable } from "../components/ProductsTable";
 
 export const ProductsListPage = () => {
   // const { isLoading, isError, data } =
@@ -35,7 +36,7 @@ export const ProductsListPage = () => {
         </Link>
       </div>
 
-      {products && <ProductsList products={products} />}
+      {products && <ProductsTable products={products} />}
     </div>
   );
 };

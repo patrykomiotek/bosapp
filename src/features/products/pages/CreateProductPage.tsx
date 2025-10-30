@@ -1,6 +1,6 @@
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
-import { faker } from "@faker-js/faker";
+// import { faker } from "@faker-js/faker";
 
 import { Header } from "@/ui";
 import { CreateProductForm } from "../components/CreateProductForm";
