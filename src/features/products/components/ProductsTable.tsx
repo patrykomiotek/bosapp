@@ -15,7 +15,12 @@ import {
   // TableCell,
   // TableRow,
 } from "@tanstack/react-table";
-import { ChevronUpIcon, ChevronDownIcon } from "@heroicons/react/16/solid";
+import {
+  ChevronUpIcon,
+  ChevronDownIcon,
+  EyeIcon,
+  EyeSlashIcon,
+} from "@heroicons/react/16/solid";
 
 type Props = {
   products: ProductDto[];
@@ -74,7 +79,7 @@ export const ProductsTable = ({ products }: Props) => {
     }),
     columnHelper.accessor("fields.price", {
       header: () => <span>Price</span>,
-      cell: (info) => `$${info.getValue()}`,
+      cell: (info) => `$${info.getValue()}`, // $123
     }),
     columnHelper.display({
       id: "actions",
@@ -107,6 +112,38 @@ export const ProductsTable = ({ products }: Props) => {
 
   return (
     <div>
+      <select>
+        {table
+          .getAllColumns()
+          .filter((column) => column.getCanHide())
+          .map((column) => {
+            const isVisible = column.getIsVisible();
+            return (
+              <option
+                key={column.id}
+                onClick={() => column.toggleVisibility(!isVisible)}
+              >
+                <span className="capitalize">
+                  {typeof column.columnDef.header === "string"
+                    ? column.columnDef.header
+                    : column.id}
+                </span>
+                {isVisible ? (
+                  <EyeIcon
+                    className="h-4 w-4 text-green-600"
+                    data-slot="icon"
+                  />
+                ) : (
+                  <EyeSlashIcon
+                    className="h-4 w-4 text-gray-400"
+                    data-slot="icon"
+                  />
+                )}
+              </option>
+            );
+          })}
+      </select>
+
       <table>
         <thead>
           {table.getHeaderGroups().map((headerGroup) => (
