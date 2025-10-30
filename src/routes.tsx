@@ -4,6 +4,9 @@ import { RegistrationPage } from "./features/registration/components/Registratio
 import { Layout } from "@/components/Layout/Layout";
 import { AboutPage } from "./pages/AboutPage";
 import { ContactPage } from "./pages/ContactPage";
+import { ProductsListPage } from "./features/products/pages/ProductsListPage";
+import { ProductsDetailsPage } from "./features/products/pages/ProductsDetailsPage";
+import { CreateProductPage } from "./features/products/pages/CreateProductPage";
 
 // dev: createBrowserRouter
 // prod: createMemoryRouter
@@ -45,14 +48,18 @@ export const routes = routerFunction([
         path: "/contact",
         element: <ContactPage />,
       },
-      // {
-      //   path: "/products/:id", // :productId -> useParams
-      //   element: <ProductsDetailsPage />,
-      // },
-      // {
-      //   path: "/products",
-      //   element: <ProductsPage />,
-      // },
+      {
+        path: "/products/:id", // :productId -> useParams
+        element: <ProductsDetailsPage />,
+      },
+      {
+        path: "/products/create",
+        element: <CreateProductPage />,
+      },
+      {
+        path: "/products",
+        element: <ProductsListPage />,
+      },
     ],
   },
 

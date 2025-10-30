@@ -3,13 +3,16 @@ import { zodResolver } from "@hookform/resolvers/zod";
 
 // react-hook-form
 import { Button, Input } from "@/ui";
-import { createProduct } from "../services/products";
 import {
   createProductSchema,
   type CreateProductDto,
 } from "../contracts/Product.dto";
 
-export const CreateProductForm = () => {
+type Props = {
+  onSubmit: (data: CreateProductDto) => void;
+};
+
+export const CreateProductForm = ({ onSubmit }: Props) => {
   const {
     register,
     handleSubmit,
@@ -19,8 +22,9 @@ export const CreateProductForm = () => {
   });
 
   const handleProductSubmit: SubmitHandler<CreateProductDto> = (data) => {
-    console.log({ data });
-    createProduct(data);
+    // console.log({ data });
+    // createProduct(data);
+    onSubmit(data);
   };
 
   return (

@@ -1,5 +1,6 @@
 type Props = {
-  children: string;
+  // children: string;
+  children: React.ReactNode;
 };
 
 export const Header = ({ children }: Props) => {

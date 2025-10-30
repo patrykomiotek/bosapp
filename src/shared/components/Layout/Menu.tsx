@@ -1,4 +1,4 @@
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { ROUTE } from "../../../routes";
 
 export const Menu = () => {
@@ -13,6 +13,11 @@ export const Menu = () => {
         <li>
           <NavLink to="/registration" className="text-blue-600">
             Registration
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/products" className="text-blue-600">
+            Products
           </NavLink>
         </li>
         <li>
