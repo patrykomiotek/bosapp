@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 import { ROUTE } from "../../../routes";
-import { Cart } from "@/features/cart/Cart";
+import { Cart } from "@/features/cart/components/Cart";
 
 export const Menu = () => {
   return (

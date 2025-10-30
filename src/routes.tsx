@@ -11,6 +11,7 @@ import { Generator } from "@/components/Generator";
 import { Stepper } from "@/components/Stepper";
 import { AuthInfo } from "./features/auth/components/AuthInfo";
 import { StepperRedux } from "@/components/StepperRedux";
+import { CartPage } from "./features/cart/pages/CartPage";
 
 // dev: createBrowserRouter
 // prod: createMemoryRouter
@@ -67,6 +68,10 @@ export const routes = routerFunction([
       {
         path: "/contact",
         element: <ContactPage />,
+      },
+      {
+        path: "/cart",
+        element: <CartPage />,
       },
       {
         path: "/products/:id", // :productId -> useParams
