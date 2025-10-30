@@ -3,7 +3,8 @@
 // import type { ProductDto } from "../contracts/Product.dto";
 import { fetchProducts } from "../services/products";
 import { useQuery } from "@tanstack/react-query";
-import { Button } from "@/ui";
+import { Button, Header } from "@/ui";
+import { ProductCard } from "./ProductCard";
 
 export const ProductsList = () => {
   // const { isLoading, isError, data } =
@@ -23,16 +24,14 @@ export const ProductsList = () => {
 
   return (
     <div>
-      <h1>Products</h1>
+      <Header>Products</Header>
       {isLoading && <p>Loading...</p>}
       {isError && <p>Oh no! An error has occurred!</p>}
       <Button onClick={() => refetch()}>Refetch</Button>
       {products.map((elem) => {
         return (
           <div key={elem.id}>
-            <h2>{elem.fields.name}</h2>
-            <p>{elem.fields.description}</p>
-            <p>${elem.fields.price}</p>
+            <ProductCard product={elem.fields} />
           </div>
         );
       })}

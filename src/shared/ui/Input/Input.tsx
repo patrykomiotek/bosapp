@@ -21,11 +21,18 @@ export const Input = forwardRef(
     const reactId = useId();
     const elemId = id ? id : reactId;
     return (
-      <div>
-        <label htmlFor={elemId}>{label}</label>
-        <input ref={ref} id={elemId} {...rest} />
+      <>
+        <div className="flex gap-2 mt-2 mb-2">
+          <label htmlFor={elemId}>{label}</label>
+          <input
+            ref={ref}
+            id={elemId}
+            className="outline rounded-sm"
+            {...rest}
+          />
+        </div>
         {error && <p style={{ color: "red" }}>{error.message}</p>}
-      </div>
+      </>
     );
   }
 );

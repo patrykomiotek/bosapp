@@ -40,6 +40,7 @@ const Button = memo(
           color: palette[color],
           backgroundColor: palette[bgColor],
         }}
+        className="px-4 py-1 rounded-sm hover:bg-green-700 active:bg-sky-500"
         {...rest}
       >
         {children}
